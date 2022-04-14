@@ -68,16 +68,16 @@ class RGBD_sal(nn.Module):
         f5 = c5 
         
         
-        f4 = c4  + F.upsample(self.merge4(f0),c4.size()[2:], mode='bilinear')
+        f4 = c4  + F.upsample(self.merge4(f5),c4.size()[2:], mode='bilinear')
 
         
-        f3 = c3  + F.upsample(self.merge3(f1),c3.size()[2:], mode='bilinear')
+        f3 = c3  + F.upsample(self.merge3(f4),c3.size()[2:], mode='bilinear')
 
         
-        f2 = c2  + F.upsample(self.merge2(f2),c2.size()[2:], mode='bilinear')
+        f2 = c2  + F.upsample(self.merge2(f3),c2.size()[2:], mode='bilinear')
 
         
-        f1 = c1  + F.upsample(self.merge1(f3),c1.size()[2:], mode='bilinear')
+        f1 = c1  + F.upsample(self.merge1(f2),c1.size()[2:], mode='bilinear')
         
         f1_attention =self.f1_ouput(f1)
         f2_attention =self.f2_ouput(f2)
