@@ -85,7 +85,7 @@ class RGBD_sal(nn.Module):
         f4_attention =self.f4_ouput(f4)
         
         
-        output_final = F.upsample(self.output_final(f4), size=x.size()[2:], mode='bilinear')
+        output_final = F.upsample(self.output_final(f1), size=x.size()[2:], mode='bilinear')
         
         
         if self.training:
