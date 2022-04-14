@@ -138,13 +138,13 @@ def train(net, optimizer):
             
             loss = cross_entropy2d(outputs, labels,temperature=20)
             
-            total_loss = loss + loss_f0 + loss_f1 + loss_f2 + loss_f3 + loss_f4
+            total_loss = loss  + loss_f1 + loss_f2 + loss_f3 + loss_f4
             
             total_loss.backward()
             optimizer.step()
             total_loss_record.update(total_loss.item(), batch_size)
             
-            loss1_record.update(loss_f0.item(), batch_size)
+            #loss1_record.update(loss_f0.item(), batch_size)
             loss2_record.update(loss_f1.item(), batch_size)
             loss3_record.update(loss_f2.item(), batch_size)
             loss4_record.update(loss_f3.item(), batch_size)
