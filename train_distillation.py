@@ -189,7 +189,8 @@ def train(net,optimizer,model_teacher):
             
             beta = 1-iou(Dilation_output.detach(),labels)
             #p = 
-            #theta = ((alpha)**p)* ((beta)**(1-p))
+            #g_mean = ((alpha)**p)* ((beta)**(1-p))
+            #theta = torch.tanh(g_mean)
             theta=0.5
             
             
